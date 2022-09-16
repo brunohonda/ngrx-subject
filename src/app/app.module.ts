@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { SubjectModule } from './subject/subject.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    SubjectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
