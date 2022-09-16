@@ -1,5 +1,5 @@
 <div class="d-flex flex-fill align-items-center p-3" *ngFor="let task of ( taskList$ | async )">
-  <button class="mr-2" (click)="delete(task.id)">
+  <button mat-icon-button color="accent" (click)="delete(task.id)">
     <mat-icon>delete</mat-icon>
   </button>
   <div class="flex-fill">{{ task.name }}</div>
