@@ -7,7 +7,7 @@ import { Observable, Subject, switchMap, tap } from 'rxjs';
 })
 export class TaskService {
 
-  private taskList = new Subject<string[]>();
+  private taskList = new Subject<{ id: number; name: string; }[]>();
   private url = 'http://localhost:3000/task';
 
   public taskList$ = this.taskList.asObservable();
@@ -17,23 +17,20 @@ export class TaskService {
   ) { }
 
   create(name: string) {
-    this.httpClient
+    return this.httpClient
       .post(this.url, { name })
-      .pipe(tap(() => this.getList()))
-      .subscribe();
+      .pipe(tap(() => this.getList()));
   }
 
   delete(id: number) {
-    this.httpClient
+    return this.httpClient
       .delete(`${this.url}/${id}`)
-      .pipe(tap(() => this.getList()))
-      .subscribe();
+      .pipe(tap(() => this.getList()));
   }
 
   getList() {
-    this.httpClient
-      .get<string[]>(this.url)
-      .pipe(tap(data => this.taskList.next(data)))
-      .subscribe();
+    return this.httpClient
+      .get<{ id: number; name: string; }[]>(this.url)
+      .pipe(tap(data => this.taskList.next(data)));
   }
 }

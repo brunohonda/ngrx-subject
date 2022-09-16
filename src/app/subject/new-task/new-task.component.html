@@ -1,0 +1,4 @@
+<form novalidate [formGroup]="form" (submit)="create()">
+  <input formControlName="search" />
+  <button type="submit" [disabled]="form.invalid">Criar</button>
+</form>
