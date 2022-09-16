@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 
+import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SubjectModule } from './subject/subject.module';
 
@@ -20,6 +21,7 @@ import { SubjectModule } from './subject/subject.module';
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
+    MatIconModule,
     MatToolbarModule,
     SubjectModule
   ],

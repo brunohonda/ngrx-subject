@@ -29,8 +29,11 @@ export class TaskService {
   }
 
   getList() {
-    return this.httpClient
+    this.httpClient
       .get<{ id: number; name: string; }[]>(this.url)
-      .pipe(tap(data => this.taskList.next(data)));
+      .pipe(tap(data => this.taskList.next(data)))
+      .subscribe();
+
+      return this.taskList$;
   }
 }
